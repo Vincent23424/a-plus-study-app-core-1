@@ -1,4 +1,4 @@
-# A+ Core 1 Study App 220 1201
+# A+ Core 1 Study App
 
 Static GitHub Pages/PWA study app for CompTIA A+ Core 1 Modules 1–10.
 
