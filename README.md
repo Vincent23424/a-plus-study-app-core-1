@@ -1,4 +1,4 @@
-# CompTIA A+ Core 1 Study App V4.12
+# CompTIA A+ Core 1 Study App V5.0
 
 PDF-only study app based on the supplied Official CompTIA A+ Core 1 and Core 2 Student Guide Modules 1–10.
 
