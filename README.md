@@ -111,8 +111,9 @@ On supported mobile devices, the app can also be added to the home screen for an
 - Web App Manifest
 - GitHub Pages
 
+## Development
+Built with HTML, CSS and JavaScript, with AI-assisted development.
+
 ## Disclaimer
-
-This is an independent study project and is not affiliated with or endorsed by CompTIA.
-
+This is an independent personal project and is not affiliated with, sponsored by, or endorsed by CompTIA.
 The app is intended as a study aid and should be used together with the official CompTIA exam objectives and study materials.
