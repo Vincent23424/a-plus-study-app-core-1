@@ -1,69 +1,64 @@
         // PBQ scenarios grounded in the Core 1 Student Guide / 220-1201 objectives.
         const pbqScenarios = [
             {
-                id:'t568a',
-                type:'wiring',
-                title:'Terminate an RJ45 — T568A',
-                desc:'You are terminating an Ethernet patch cable. Select the eight wire colors in the correct pin order for T568A.',
-                objective:'Place the conductors in pins 1–8 using the T568A termination order.',
-                hint:'T568A starts with the green pair on pins 1 and 2. The blue pair occupies pins 4 and 5.',
+                id:'t568a', type:'wiring', title:'RJ45 Termination — T568A',
+                desc:'You are terminating an Ethernet patch cable. Build the conductor order for the T568A standard, pin 1 through pin 8.',
+                objective:'Drag or tap the eight wire colors into pins 1–8. Each conductor can be used only once.',
+                hint:'T568A starts with the green pair. The blue pair is on pins 4 and 5.',
                 target:['white/green','green','white/orange','blue','white/blue','orange','white/brown','brown']
             },
             {
-                id:'t568b',
-                type:'wiring',
-                title:'Terminate an RJ45 — T568B',
-                desc:'You are terminating an Ethernet patch cable. Select the eight wire colors in the correct pin order for T568B.',
-                objective:'Place the conductors in pins 1–8 using the T568B termination order.',
+                id:'t568b', type:'wiring', title:'RJ45 Termination — T568B',
+                desc:'You are terminating an Ethernet patch cable. Build the conductor order for the T568B standard, pin 1 through pin 8.',
+                objective:'Drag or tap the eight wire colors into pins 1–8. Each conductor can be used only once.',
                 hint:'T568B swaps the orange and green pairs compared with T568A. The blue pair remains on pins 4 and 5.',
                 target:['white/orange','orange','white/green','blue','white/blue','green','white/brown','brown']
             },
             {
-                id:'ports',
-                type:'matching',
-                title:'Match Ports to Protocols',
-                desc:'A technician is documenting common services. Match each service to its standard port.',
-                objective:'Match all four services to the correct port numbers.',
-                rows:[
-                    ['HTTPS','443'],['SSH','22'],['DNS','53'],['SMB/CIFS','445']
-                ],
-                options:['22','53','443','445']
+                id:'ports', type:'matching', title:'Match Ports to Protocols',
+                desc:'A technician is documenting common network services. Match each service to its standard TCP/UDP port.',
+                objective:'Match all five services to the correct port number.',
+                rows:[['HTTPS','443'],['SSH','22'],['DNS','53'],['SMB/CIFS','445'],['RDP','3389']],
+                options:['22','53','443','445','3389']
             },
             {
-                id:'poe',
-                type:'matching',
-                title:'Match PoE Types',
-                desc:'A switch is being checked before connecting powered devices. Match each PoE type to its PSE power level.',
-                objective:'Match PoE Type 1–4 to the PSE power figures used in the Core 1 reference.',
-                rows:[
-                    ['Type 1 / 802.3af','15.4 W'],['Type 2 / 802.3at','30 W'],
-                    ['Type 3 / 802.3bt','60 W'],['Type 4 / 802.3bt','90 W']
-                ],
+                id:'poe', type:'matching', title:'Match PoE Types to PSE Power',
+                desc:'A technician is checking whether a PoE switch can provide the required power. Match each PoE type to its PSE power level.',
+                objective:'Match PoE Type 1–4 to the PSE figures used in the Core 1 reference.',
+                rows:[['Type 1 / 802.3af','15.4 W'],['Type 2 / 802.3at','30 W'],['Type 3 / 802.3bt','60 W'],['Type 4 / 802.3bt','90 W']],
                 options:['15.4 W','30 W','60 W','90 W']
             },
             {
-                id:'ip',
-                type:'classification',
-                title:'Classify IPv4 Addresses',
-                desc:'Classify each address as Private, APIPA, or Public based on the Core 1 addressing ranges.',
-                objective:'Identify the addressing category for each IPv4 address.',
-                rows:[
-                    ['10.20.30.40','Private'],['172.20.5.10','Private'],
-                    ['169.254.22.8','APIPA'],['8.8.8.8','Public']
-                ],
+                id:'ip', type:'classification', title:'Classify IPv4 Addresses',
+                desc:'Classify each address as Private, APIPA, or Public using the Core 1 IPv4 ranges.',
+                objective:'Classify all five addresses before submitting the PBQ.',
+                rows:[['10.20.30.40','Private'],['172.20.5.10','Private'],['192.168.10.25','Private'],['169.254.22.8','APIPA'],['8.8.8.8','Public']],
                 options:['Private','APIPA','Public']
             },
             {
-                id:'hardware',
-                type:'matching',
-                title:'Match Network Hardware to Its Role',
-                desc:'A small office is being documented. Match each device to the role it performs.',
-                objective:'Match common networking hardware to its primary role.',
-                rows:[
-                    ['Switch','Connects devices within a LAN'],['Router','Connects different networks'],
-                    ['Access point','Provides wireless LAN connectivity'],['Firewall','Filters network traffic']
-                ],
+                id:'hardware', type:'matching', title:'Match Network Hardware to Its Role',
+                desc:'A small office is being documented. Match each network device to its primary role.',
+                objective:'Match all four devices to the correct function.',
+                rows:[['Switch','Connects devices within a LAN'],['Router','Connects different networks'],['Access point','Provides wireless LAN connectivity'],['Firewall','Filters network traffic']],
                 options:['Connects devices within a LAN','Connects different networks','Provides wireless LAN connectivity','Filters network traffic']
+            },
+            {
+                id:'cable', type:'cablecheck', title:'Copper Cable Termination Check',
+                desc:'You are preparing a twisted-pair Ethernet cable for termination. Verify the termination method and installation limits.',
+                objective:'Select the correct connector, termination standard, and maximum untwist allowed near the termination.',
+                hint:'The Student Guide specifies RJ45 plugs for patch cords and no more than ½ inch (13 mm) untwisted near the termination.',
+                fields:[
+                    ['Connector','RJ45',['RJ11','RJ45','F-type','LC']],
+                    ['Termination standard','T568B',['T568A','T568B','802.11ax','802.3at']],
+                    ['Maximum untwist','13 mm (½ inch)',['5 mm','13 mm (½ inch)','25 mm','100 mm']]
+                ]
+            },
+            {
+                id:'storage', type:'matching', title:'Match Storage Interfaces to Their Use',
+                desc:'A technician is identifying storage interfaces during a PC installation. Match each interface to the description that fits it.',
+                objective:'Match all four storage technologies to the correct description.',
+                rows:[['NVMe','SSD communication interface'],['SATA','Storage communication interface'],['SAS','Enterprise storage interface'],['RAID 1','Drive configuration for redundancy']],
+                options:['SSD communication interface','Storage communication interface','Enterprise storage interface','Drive configuration for redundancy']
             }
         ];
 
@@ -661,8 +656,17 @@
             }
 
             /* Interactive PBQ logic */
+            updatePBQProgress() {
+                const completed=Object.keys(this.state.pbqCompleted||{}).length;
+                const total=pbqScenarios.length;
+                const el=document.getElementById('pbq-total-count'), ec=document.getElementById('pbq-completed-count'), ep=document.getElementById('pbq-progress-count');
+                if(el)el.textContent=total; if(ec)ec.textContent=Math.min(completed,total); if(ep)ep.textContent=(total?Math.round(Math.min(completed,total)/total*100):0)+'%';
+            }
+            startRandomPBQ() { this.loadPBQScenario(Math.floor(Math.random()*pbqScenarios.length)); }
+
             loadPBQScenario(index) {
                 this.currentPBQIndex = Math.max(0, Math.min(index, pbqScenarios.length - 1));
+                this.updatePBQProgress();
                 const sc = pbqScenarios[this.currentPBQIndex];
                 const workspace = document.getElementById('pbq-workspace');
                 if (!workspace) return;
@@ -680,52 +684,45 @@
                 if (sc.type === 'wiring') {
                     const colors = ['white/green','green','white/orange','orange','white/blue','blue','white/brown','brown'];
                     const labels = {'white/green':'White/Green','green':'Green','white/orange':'White/Orange','orange':'Orange','white/blue':'White/Blue','blue':'Blue','white/brown':'White/Brown','brown':'Brown'};
+                    const swatch = {'white/green':'linear-gradient(135deg,#fff 0 50%,#22c55e 50%)','green':'#22c55e','white/orange':'linear-gradient(135deg,#fff 0 50%,#f97316 50%)','orange':'#f97316','white/blue':'linear-gradient(135deg,#fff 0 50%,#3b82f6 50%)','blue':'#3b82f6','white/brown':'linear-gradient(135deg,#fff 0 50%,#a16207 50%)','brown':'#a16207'};
                     return `
                         <div class="glass-card rounded-2xl p-5 space-y-4">
-                            <div class="flex items-center justify-between gap-3">
-                                <div>
-                                    <h3 class="font-bold text-white">RJ45 pinout</h3>
-                                    <p class="text-xs text-slate-400">Choose one conductor for each pin, from 1 to 8.</p>
-                                </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <div><h3 class="font-bold text-white">RJ45 pinout builder</h3><p class="text-xs text-slate-400">Drag a conductor to a pin, or tap a conductor and then a pin on mobile.</p></div>
                                 <span class="px-2 py-1 rounded-lg bg-brand-500/10 text-brand-accent text-[10px] font-bold">T568${sc.id.endsWith('a')?'A':'B'}</span>
                             </div>
+                            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400">Build the cable <b class="text-slate-200">pin 1 → pin 8</b>. The same conductor cannot be used twice.</div>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="wire-palette">
+                                ${colors.map(c=>`<button type="button" draggable="true" data-wire="${c}" onclick="app.selectWire('${c}')" ondragstart="app.dragWire(event,'${c}')" class="wire-chip flex items-center gap-2 p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-brand-500 text-left text-[10px] text-slate-200 transition-all"><span class="w-5 h-5 rounded-full border border-slate-600 shrink-0" style="background:${swatch[c]}"></span><span>${labels[c]}</span></button>`).join('')}
+                            </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="wire-slots">
-                                ${sc.target.map((_,i)=>`
-                                    <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
-                                        <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center font-mono text-xs font-bold">${i+1}</span>
-                                        <select data-pin="${i}" class="flex-1 bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2">
-                                            <option value="">Select wire...</option>
-                                            ${colors.map(c=>`<option value="${c}">${labels[c]}</option>`).join('')}
-                                        </select>
-                                    </label>`).join('')}
+                                ${sc.target.map((_,i)=>`<button type="button" data-pin="${i}" ondragover="event.preventDefault();this.classList.add('border-brand-400')" ondragleave="this.classList.remove('border-brand-400')" ondrop="app.dropWire(event,${i})" onclick="app.placeSelectedWire(${i})" class="wire-slot flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-left min-h-[52px] transition-all"><span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center font-mono text-xs font-bold">${i+1}</span><span class="wire-value text-xs text-slate-500">Drop or tap a wire</span></button>`).join('')}
                             </div>
                             <div id="pbq-inline-feedback" class="hidden"></div>
-                            <div class="flex gap-2">
-                                <button onclick="app.checkWiringPBQ()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Check Wiring</button>
-                                <button onclick="app.loadPBQScenario(app.currentPBQIndex)" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">Clear</button>
-                            </div>
+                            <div class="flex gap-2"><button onclick="app.checkWiringPBQ()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Submit PBQ</button><button onclick="app.loadPBQScenario(app.currentPBQIndex)" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">Clear</button></div>
                         </div>`;
                 }
+                if (sc.type === 'cablecheck') {
+                    return `<div class="glass-card rounded-2xl p-5 space-y-4"><div><h3 class="font-bold text-white">Cable installation check</h3><p class="text-xs text-slate-400">Choose the correct value for each installation requirement.</p></div><div class="space-y-3">${sc.fields.map((f,i)=>`<label class="block p-3 rounded-xl bg-slate-900 border border-slate-800"><span class="text-xs font-semibold text-slate-200">${f[0]}</span><select data-cable-field="${i}" class="mt-2 w-full bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2"><option value="">Select...</option>${f[2].map(o=>`<option value="${o}">${o}</option>`).join('')}</select></label>`).join('')}</div><div id="pbq-inline-feedback" class="hidden"></div><button onclick="app.checkCablePBQ()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Submit PBQ</button></div>`;
+                }
+                return `<div class="glass-card rounded-2xl p-5 space-y-4"><div><h3 class="font-bold text-white">Complete the matching task</h3><p class="text-xs text-slate-400">Match every item, then submit the whole PBQ.</p></div><div class="space-y-2" id="pbq-match-rows">${sc.rows.map((r,i)=>`<div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-2 items-center p-3 rounded-xl bg-slate-900 border border-slate-800"><div class="text-sm text-slate-200 font-medium">${r[0]}</div><select data-row="${i}" class="bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2"><option value="">Select...</option>${sc.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select></div>`).join('')}</div><div id="pbq-inline-feedback" class="hidden"></div><button onclick="app.checkMatchingPBQ()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Submit PBQ</button></div>`;
+            }
 
-                return `
-                    <div class="glass-card rounded-2xl p-5 space-y-4">
-                        <div>
-                            <h3 class="font-bold text-white">Complete the matching task</h3>
-                            <p class="text-xs text-slate-400">Select the correct answer for every row, then submit the whole PBQ.</p>
-                        </div>
-                        <div class="space-y-2" id="pbq-match-rows">
-                            ${sc.rows.map((r,i)=>`
-                                <div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-2 items-center p-3 rounded-xl bg-slate-900 border border-slate-800">
-                                    <div class="text-sm text-slate-200 font-medium">${r[0]}</div>
-                                    <select data-row="${i}" class="bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2">
-                                        <option value="">Select...</option>
-                                        ${sc.options.map(o=>`<option value="${o}">${o}</option>`).join('')}
-                                    </select>
-                                </div>`).join('')}
-                        </div>
-                        <div id="pbq-inline-feedback" class="hidden"></div>
-                        <button onclick="app.checkMatchingPBQ()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Submit PBQ</button>
-                    </div>`;
+            selectWire(wire) {
+                this.selectedWire = wire;
+                document.querySelectorAll('.wire-chip').forEach(b=>b.classList.toggle('ring-2', b.dataset.wire===wire));
+            }
+            dragWire(event, wire) { this.selectedWire = wire; event.dataTransfer.setData('text/plain', wire); }
+            dropWire(event, pin) { event.preventDefault(); event.currentTarget.classList.remove('border-brand-400'); this.selectedWire=event.dataTransfer.getData('text/plain')||this.selectedWire; this.placeSelectedWire(pin); }
+            placeSelectedWire(pin) {
+                if (!this.selectedWire) return;
+                const slots=[...document.querySelectorAll('#wire-slots .wire-slot')];
+                const existing=slots.findIndex(x=>x.dataset.wire===this.selectedWire);
+                if(existing>=0) slots[existing].querySelector('.wire-value').textContent='Drop or tap a wire';
+                const slot=slots[pin]; if(!slot)return;
+                slot.dataset.wire=this.selectedWire;
+                slot.querySelector('.wire-value').innerHTML=`<span class="font-semibold text-white">${this.selectedWire.replace('/', ' / ')}</span>`;
+                this.selectedWire=null; document.querySelectorAll('.wire-chip').forEach(b=>b.classList.remove('ring-2'));
             }
 
             showPBQFeedback(ok, message) {
@@ -744,12 +741,13 @@
                     this.state.pbqCompleted[key] = true;
                     this.state.pbqSolved = (this.state.pbqSolved || 0) + 1;
                     this.saveState();
+                    this.updatePBQProgress();
                 }
             }
 
             checkWiringPBQ() {
                 const sc = pbqScenarios[this.currentPBQIndex];
-                const values = [...document.querySelectorAll('#wire-slots select')].map(x => x.value);
+                const values = [...document.querySelectorAll('#wire-slots .wire-slot')].map(x => x.dataset.wire || '');
                 const complete = values.every(Boolean);
                 if (!complete) {
                     this.showPBQFeedback(false, 'Fill all eight pins before submitting.');
@@ -780,6 +778,15 @@
                     const firstWrong = values.findIndex((v,i) => v !== sc.rows[i][1]);
                     this.showPBQFeedback(false, `<b>Not quite.</b><div class="mt-1">At least one row is incorrect. Re-check row ${firstWrong + 1} and submit again.</div>`);
                 }
+            }
+
+            checkCablePBQ() {
+                const sc=pbqScenarios[this.currentPBQIndex];
+                const values=[...document.querySelectorAll('[data-cable-field]')].map(x=>x.value);
+                if(values.some(v=>!v)){this.showPBQFeedback(false,'Complete every field before submitting.');return;}
+                const correct=values.every((v,i)=>v===sc.fields[i][1]);
+                if(correct){this.markPBQComplete();this.showPBQFeedback(true,'<b>✓ Correct.</b><div class="mt-1">The cable installation choices match the task.</div>');}
+                else {const i=values.findIndex((v,j)=>v!==sc.fields[j][1]);this.showPBQFeedback(false,`<b>Not quite.</b><div class="mt-1">Review <b>${sc.fields[i][0]}</b> and try again.</div>`);}
             }
 
             selectPBQScenario(idx) {
@@ -828,7 +835,7 @@
 
             resetProgress() {
                 if (confirm("Are you sure you want to reset all quiz progress and stats?")) {
-                    this.state = { answered: {}, wrong: [], starred: [], stats: {}, cardsViewed: 0, pbqSolved: 0 };
+                    this.state = { answered: {}, wrong: [], starred: [], stats: {}, cardsViewed: 0, pbqSolved: 0, pbqCompleted: {} };
                     this.saveState();
                     this.renderStatsView();
                 }

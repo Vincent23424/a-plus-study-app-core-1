@@ -423,11 +423,12 @@
                     <h2 class="text-xl font-bold text-white mt-1">Interactive PBQ & Scenario Simulator</h2>
                     <p class="text-xs text-slate-400">Solve practical Core 1 tasks using interactive wiring, matching, classification and configuration exercises.</p>
                 </div>
-                <div class="flex items-center gap-2 w-full md:w-auto">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
                     <label for="pbq-scenario-select" class="text-xs text-slate-400 whitespace-nowrap">Scenario:</label>
                     <select id="pbq-scenario-select" onchange="app.selectPBQScenario(Number(this.value))" class="min-w-0 flex-1 md:w-72 bg-slate-800 border border-slate-700 text-white text-xs font-semibold rounded-xl px-3 py-2 focus:outline-none focus:border-brand-500">
                         <option value="0">Scenario 1</option>
                     </select>
+                    <button onclick="app.startRandomPBQ()" class="px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold"><i class="fa-solid fa-shuffle mr-1"></i>Random</button>
                 </div>
             </div>
 
@@ -436,6 +437,11 @@
                 <!-- Task Description Panel -->
                 <div class="lg:col-span-5 space-y-4">
                     <div class="glass-card rounded-2xl p-5 border border-slate-700 space-y-4">
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div class="rounded-xl bg-slate-900 border border-slate-800 p-2"><div class="text-[10px] text-slate-500 uppercase">Scenarios</div><div id="pbq-total-count" class="font-bold text-white">8</div></div>
+                            <div class="rounded-xl bg-slate-900 border border-slate-800 p-2"><div class="text-[10px] text-slate-500 uppercase">Completed</div><div id="pbq-completed-count" class="font-bold text-emerald-400">0</div></div>
+                            <div class="rounded-xl bg-slate-900 border border-slate-800 p-2"><div class="text-[10px] text-slate-500 uppercase">Progress</div><div id="pbq-progress-count" class="font-bold text-cyan-400">0%</div></div>
+                        </div>
                         <div class="flex items-center gap-2 text-xs font-bold text-brand-accent uppercase tracking-wider">
                             <i class="fa-solid fa-circle-info"></i> Scenario Briefing
                         </div>

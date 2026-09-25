@@ -1,23 +1,54 @@
-# A+ Core 1 Study App — V6.1
+# A+ Core 1 Study App
 
-A CompTIA A+ Core 1 (220-1201) study PWA covering Modules 1–10.
+A free CompTIA A+ Core 1 (220-1201) study PWA covering Modules 1–10.
 
-## Features
-- Core 1 question bank with randomized quizzes and answer choices
-- Final Test, Random Practice, New Questions, Weak Areas, Wrong Questions and Starred Questions
-- Module, lesson and 3-Module Challenge practice
-- Flashcards
-- PBQ & Lab practice with interactive wiring and matching tasks
-- Ports & Protocols and Core 1 reference material
-- Progress, accuracy and module statistics
+## Current Build
+
+- **763 source-grounded questions**
+- Module and All Modules quizzes
+- Final Test, Random Practice, New, Wrong, Weak and Starred Questions
+- Multiple question styles for the same concepts
+- Flashcard Review with module and question-count selection
+- Interactive PBQ & Lab exercises
+- RJ45 T568A/T568B wiring practice
+- Ports & Protocols Quiz
+- Specs & Standards Quiz
+- Reference section
+- Study Readiness 0–100%
 - LocalStorage progress tracking
-- PWA / offline support
+- Responsive design with offline PWA support
 
-## Source
-Based on the supplied CompTIA A+ Core 1 Student Guide and 220-1201 V15 Exam Objectives.
+## PBQ & Lab
 
-Built as a personal study project with AI-assisted development.
+The PBQ section uses interactive Core 1 tasks instead of only multiple-choice questions, including:
 
-Not affiliated with or endorsed by CompTIA.
+- RJ45 T568A and T568B conductor ordering
+- Port and protocol matching
+- PoE Type 1–4 matching
+- IPv4 address classification
+- Network hardware and role matching
+- Copper cable termination checks
+- Storage interface and configuration matching
 
-- Port Quiz and Standards Quiz
+RJ45 tasks can be completed by dragging conductors to pins or by tapping a conductor and then a pin on mobile devices.
+
+## Source Scope
+
+Based only on the supplied:
+
+- **CompTIA A+ Core 1 and Core 2 Student Guide — Modules 1–10**
+- **CompTIA A+ 220-1201 Exam Objectives, Version 4.0**
+
+The question bank and interactive exercises were built around the Core 1 lesson objectives and source material. Reference values and PBQ tasks are limited to concepts supported by the supplied study material and exam objectives.
+
+## Technology
+
+HTML, CSS, JavaScript, LocalStorage and GitHub Pages.
+
+Built with **AI-assisted development** as a personal CompTIA A+ study project.
+
+## Disclaimer
+
+This is an independent personal project and is not affiliated with, sponsored by, or endorsed by CompTIA.
+
+The app is intended as a study aid and should be used alongside the official CompTIA exam objectives and study materials.
