@@ -1,16 +1,71 @@
         // PBQ scenarios grounded in the Core 1 Student Guide / 220-1201 objectives.
         const pbqScenarios = [
-{title:'Identify the Network Device',desc:'A small office needs a device that connects wireless clients to the wired LAN. Enter the device.',objective:'Configure basic SOHO networking hardware.',hint:'Think about the device that provides wireless LAN connectivity.',expected:['access point','wireless access point','wap'],success:'Correct. An access point provides wireless connectivity to clients.',failure:'The expected device is an access point.'},
-{title:'Choose the Correct Cable',desc:'A 10Gbps copper Ethernet connection must run 80 meters. Enter the cable category.',objective:'Select an appropriate network cable category.',hint:'Cat6 is limited to shorter 10Gbps runs.',expected:['cat6a'],success:'Correct. Cat6A supports 10Gbps up to 100m.',failure:'Use Cat6A.'},
-{title:'Identify APIPA',desc:'A client cannot obtain DHCP and has an address in the 169.254.x.x range. Enter the mechanism.',objective:'Recognize automatic private IPv4 addressing.',hint:'The range begins with 169.254.',expected:['apipa','automatic private ip addressing'],success:'Correct. APIPA uses the 169.254.0.0/16 range.',failure:'The answer is APIPA.'},
-{title:'Select the HTTPS Port',desc:'Enter the TCP port normally used by HTTPS.',objective:'Identify common ports and protocols.',hint:'HTTP uses 80; HTTPS uses the secure web port.',expected:['443'],success:'Correct. HTTPS uses TCP port 443.',failure:'HTTPS uses port 443.'},
-{title:'Select PoE Type',desc:'A powered device requires up to 25.5W. Enter the PoE type or standard.',objective:'Identify PoE standards and power levels.',hint:'Look for the standard providing 25.5W at the PD.',expected:['type 2','802.3at','poe+'],success:'Correct. PoE Type 2 / 802.3at provides up to 25.5W at the PD.',failure:'Use PoE Type 2 (802.3at).'},
-{title:'Choose NVMe Storage',desc:'A workstation needs a high-performance SSD using PCIe and NVMe. Enter the protocol.',objective:'Compare storage devices and interfaces.',hint:'The protocol is NVMe.',expected:['nvme'],success:'Correct. NVMe is the protocol used by high-performance PCIe SSDs.',failure:'The expected protocol is NVMe.'},
-{title:'Printer Maintenance',desc:'A laser printer is producing faded pages because its primary consumable is depleted. Enter the consumable.',objective:'Perform appropriate printer maintenance.',hint:'Laser printers do not use ink cartridges.',expected:['toner','toner cartridge'],success:'Correct. Replace the toner.',failure:'A laser printer uses toner.'},
-{title:'Choose the Wi-Fi Band',desc:'Enter the common Wi-Fi band with the longest typical indoor range among 2.4GHz, 5GHz and 6GHz.',objective:'Explain wireless networking technologies.',hint:'The lower-frequency band generally travels farther indoors.',expected:['2.4ghz','2.4'],success:'Correct. 2.4GHz has the longest typical indoor range.',failure:'Use 2.4GHz.'},
-{title:'Private IPv4 Range',desc:'Enter one valid private IPv4 network range.',objective:'Explain common IP addressing concepts.',hint:'Examples include 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16.',expected:['10.0.0.0/8','172.16.0.0/12','192.168.0.0/16','10/8','172.16/12','192.168/16'],success:'Correct. That is a private IPv4 range.',failure:'Use 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16.'},
-{title:'Choose the RAM Form Factor',desc:'A laptop requires the compact RAM form factor designed for mobile systems. Enter it.',objective:'Compare RAM characteristics.',hint:'The laptop-oriented module is the Small Outline version.',expected:['sodimm','so-dimm'],success:'Correct. SODIMM is the compact RAM form factor.',failure:'The expected form factor is SODIMM.'}
-];
+            {
+                id:'t568a',
+                type:'wiring',
+                title:'Terminate an RJ45 — T568A',
+                desc:'You are terminating an Ethernet patch cable. Select the eight wire colors in the correct pin order for T568A.',
+                objective:'Place the conductors in pins 1–8 using the T568A termination order.',
+                hint:'T568A starts with the green pair on pins 1 and 2. The blue pair occupies pins 4 and 5.',
+                target:['white/green','green','white/orange','blue','white/blue','orange','white/brown','brown']
+            },
+            {
+                id:'t568b',
+                type:'wiring',
+                title:'Terminate an RJ45 — T568B',
+                desc:'You are terminating an Ethernet patch cable. Select the eight wire colors in the correct pin order for T568B.',
+                objective:'Place the conductors in pins 1–8 using the T568B termination order.',
+                hint:'T568B swaps the orange and green pairs compared with T568A. The blue pair remains on pins 4 and 5.',
+                target:['white/orange','orange','white/green','blue','white/blue','green','white/brown','brown']
+            },
+            {
+                id:'ports',
+                type:'matching',
+                title:'Match Ports to Protocols',
+                desc:'A technician is documenting common services. Match each service to its standard port.',
+                objective:'Match all four services to the correct port numbers.',
+                rows:[
+                    ['HTTPS','443'],['SSH','22'],['DNS','53'],['SMB/CIFS','445']
+                ],
+                options:['22','53','443','445']
+            },
+            {
+                id:'poe',
+                type:'matching',
+                title:'Match PoE Types',
+                desc:'A switch is being checked before connecting powered devices. Match each PoE type to its PSE power level.',
+                objective:'Match PoE Type 1–4 to the PSE power figures used in the Core 1 reference.',
+                rows:[
+                    ['Type 1 / 802.3af','15.4 W'],['Type 2 / 802.3at','30 W'],
+                    ['Type 3 / 802.3bt','60 W'],['Type 4 / 802.3bt','90 W']
+                ],
+                options:['15.4 W','30 W','60 W','90 W']
+            },
+            {
+                id:'ip',
+                type:'classification',
+                title:'Classify IPv4 Addresses',
+                desc:'Classify each address as Private, APIPA, or Public based on the Core 1 addressing ranges.',
+                objective:'Identify the addressing category for each IPv4 address.',
+                rows:[
+                    ['10.20.30.40','Private'],['172.20.5.10','Private'],
+                    ['169.254.22.8','APIPA'],['8.8.8.8','Public']
+                ],
+                options:['Private','APIPA','Public']
+            },
+            {
+                id:'hardware',
+                type:'matching',
+                title:'Match Network Hardware to Its Role',
+                desc:'A small office is being documented. Match each device to the role it performs.',
+                objective:'Match common networking hardware to its primary role.',
+                rows:[
+                    ['Switch','Connects devices within a LAN'],['Router','Connects different networks'],
+                    ['Access point','Provides wireless LAN connectivity'],['Firewall','Filters network traffic']
+                ],
+                options:['Connects devices within a LAN','Connects different networks','Provides wireless LAN connectivity','Filters network traffic']
+            }
+        ];
 
         /**
          * Embedded Questions & Modules Data
@@ -106,6 +161,38 @@
                 if(fb){fb.className=`mb-3 p-3 rounded-xl text-xs border ${ok?'bg-emerald-950/40 border-emerald-800 text-emerald-300':'bg-rose-950/40 border-rose-800 text-rose-300'}`;fb.innerHTML=ok?`<b>✓ Correct</b><div class="mt-1">${sc.success}</div>`:`<b>✗ Not correct</b><div class="mt-1">${sc.failure}</div><div class="mt-1 text-slate-500">Use the hint if needed and submit again.</div>`;}
                 if(ok){const key=`pbq-${this.currentPBQIndex}`;this.state.pbqCompleted=this.state.pbqCompleted||{};if(!this.state.pbqCompleted[key]){this.state.pbqCompleted[key]=true;this.state.pbqSolved=(this.state.pbqSolved||0)+1;this.saveState();}}
             }
+            startPortsQuiz() {
+                const ports = [
+                    ['20','FTP data'],['21','FTP control'],['22','SSH'],['23','Telnet'],['25','SMTP'],
+                    ['53','DNS'],['67','DHCP server'],['68','DHCP client'],['80','HTTP'],['110','POP'],
+                    ['143','IMAP'],['389','LDAP'],['443','HTTPS'],['445','SMB/CIFS'],['3389','RDP'],
+                    ['123','NTP'],['161','SNMP'],['162','SNMP Trap'],['514','Syslog'],['1812','RADIUS authentication']
+                ];
+                const qs = ports.map(([port,name], i) => {
+                    const distractors = ports.filter((_,j)=>j!==i).sort(()=>Math.random()-.5).slice(0,3).map(x=>x[0]);
+                    const options = [port,...distractors].sort(()=>Math.random()-.5);
+                    return {
+                        id:`ref-port-${port}-${i}`,
+                        module:7, lesson:'7A', difficulty:'Reference',
+                        question:`Which port is used by ${name}?`,
+                        options,
+                        answer:options.indexOf(port),
+                        explanation:`${name} uses port ${port} in the Core 1 reference.`
+                    };
+                });
+                this.startSession(qs,'Ports & Protocols Quiz',20);
+            }
+
+            startStandardsQuiz() {
+                const specs = DATA.questions.filter(q => q.concept === 'specs');
+                if (!specs.length) {
+                    alert('No Standards questions are available.');
+                    return;
+                }
+                const pool = [...specs].sort(()=>Math.random()-.5).slice(0,Math.min(20,specs.length));
+                this.startSession(pool,'Specs & Standards Quiz',pool.length);
+            }
+
             renderReference(){
                 const data={
                   'Ports & Protocols':[['20/21','FTP'],['22','SSH'],['23','Telnet'],['25','SMTP'],['53','DNS'],['67/68','DHCP'],['80','HTTP'],['110','POP3'],['143','IMAP'],['137–139','NetBIOS/NetBT'],['389','LDAP'],['443','HTTPS'],['445','SMB/CIFS'],['3389','RDP'],['123','NTP'],['161/162','SNMP / SNMP Trap'],['514','Syslog'],['1812/1813','RADIUS']],
@@ -573,22 +660,126 @@
                 this.renderCard();
             }
 
-            /* PBQ Terminal logic */
+            /* Interactive PBQ logic */
             loadPBQScenario(index) {
-                this.currentPBQIndex = index;
-                const sc = pbqScenarios[index];
+                this.currentPBQIndex = Math.max(0, Math.min(index, pbqScenarios.length - 1));
+                const sc = pbqScenarios[this.currentPBQIndex];
+                const workspace = document.getElementById('pbq-workspace');
+                if (!workspace) return;
+
                 document.getElementById('pbq-scenario-title').textContent = sc.title;
                 document.getElementById('pbq-scenario-desc').textContent = sc.desc;
                 document.getElementById('pbq-scenario-objective').textContent = sc.objective;
                 document.getElementById('pbq-hint-text').textContent = sc.hint;
                 document.getElementById('pbq-hint-box').classList.add('hidden');
 
-                const body = document.getElementById('terminal-body');
-                body.innerHTML = `
-                    <div>Microsoft Windows [Version 10.0.19045.3803]</div>
-                    <div>(c) Microsoft Corporation. All rights reserved.</div>
-                    <div class="text-slate-400 pb-2">Type your command below to execute scenario task:</div>
-                `;
+                workspace.innerHTML = this.renderPBQWorkspace(sc);
+            }
+
+            renderPBQWorkspace(sc) {
+                if (sc.type === 'wiring') {
+                    const colors = ['white/green','green','white/orange','orange','white/blue','blue','white/brown','brown'];
+                    const labels = {'white/green':'White/Green','green':'Green','white/orange':'White/Orange','orange':'Orange','white/blue':'White/Blue','blue':'Blue','white/brown':'White/Brown','brown':'Brown'};
+                    return `
+                        <div class="glass-card rounded-2xl p-5 space-y-4">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <h3 class="font-bold text-white">RJ45 pinout</h3>
+                                    <p class="text-xs text-slate-400">Choose one conductor for each pin, from 1 to 8.</p>
+                                </div>
+                                <span class="px-2 py-1 rounded-lg bg-brand-500/10 text-brand-accent text-[10px] font-bold">T568${sc.id.endsWith('a')?'A':'B'}</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="wire-slots">
+                                ${sc.target.map((_,i)=>`
+                                    <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                        <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center font-mono text-xs font-bold">${i+1}</span>
+                                        <select data-pin="${i}" class="flex-1 bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2">
+                                            <option value="">Select wire...</option>
+                                            ${colors.map(c=>`<option value="${c}">${labels[c]}</option>`).join('')}
+                                        </select>
+                                    </label>`).join('')}
+                            </div>
+                            <div id="pbq-inline-feedback" class="hidden"></div>
+                            <div class="flex gap-2">
+                                <button onclick="app.checkWiringPBQ()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Check Wiring</button>
+                                <button onclick="app.loadPBQScenario(app.currentPBQIndex)" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">Clear</button>
+                            </div>
+                        </div>`;
+                }
+
+                return `
+                    <div class="glass-card rounded-2xl p-5 space-y-4">
+                        <div>
+                            <h3 class="font-bold text-white">Complete the matching task</h3>
+                            <p class="text-xs text-slate-400">Select the correct answer for every row, then submit the whole PBQ.</p>
+                        </div>
+                        <div class="space-y-2" id="pbq-match-rows">
+                            ${sc.rows.map((r,i)=>`
+                                <div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-2 items-center p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                    <div class="text-sm text-slate-200 font-medium">${r[0]}</div>
+                                    <select data-row="${i}" class="bg-slate-800 border border-slate-700 text-white text-xs rounded-lg px-3 py-2">
+                                        <option value="">Select...</option>
+                                        ${sc.options.map(o=>`<option value="${o}">${o}</option>`).join('')}
+                                    </select>
+                                </div>`).join('')}
+                        </div>
+                        <div id="pbq-inline-feedback" class="hidden"></div>
+                        <button onclick="app.checkMatchingPBQ()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">Submit PBQ</button>
+                    </div>`;
+            }
+
+            showPBQFeedback(ok, message) {
+                const el = document.getElementById('pbq-inline-feedback');
+                if (!el) return;
+                el.className = `p-3 rounded-xl text-xs border ${ok
+                    ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
+                    : 'bg-rose-950/40 border-rose-800 text-rose-300'}`;
+                el.innerHTML = message;
+            }
+
+            markPBQComplete() {
+                const key = `pbq-${this.currentPBQIndex}`;
+                this.state.pbqCompleted = this.state.pbqCompleted || {};
+                if (!this.state.pbqCompleted[key]) {
+                    this.state.pbqCompleted[key] = true;
+                    this.state.pbqSolved = (this.state.pbqSolved || 0) + 1;
+                    this.saveState();
+                }
+            }
+
+            checkWiringPBQ() {
+                const sc = pbqScenarios[this.currentPBQIndex];
+                const values = [...document.querySelectorAll('#wire-slots select')].map(x => x.value);
+                const complete = values.every(Boolean);
+                if (!complete) {
+                    this.showPBQFeedback(false, 'Fill all eight pins before submitting.');
+                    return;
+                }
+                const correct = values.every((v,i) => v === sc.target[i]);
+                if (correct) {
+                    this.markPBQComplete();
+                    this.showPBQFeedback(true, '<b>✓ Correct.</b><div class="mt-1">The eight conductors are in the correct T568 termination order.</div>');
+                } else {
+                    const firstWrong = values.findIndex((v,i) => v !== sc.target[i]);
+                    this.showPBQFeedback(false, `<b>Not quite.</b><div class="mt-1">Check pin ${firstWrong + 1} and compare the green/orange pair positions with the selected standard.</div>`);
+                }
+            }
+
+            checkMatchingPBQ() {
+                const sc = pbqScenarios[this.currentPBQIndex];
+                const values = [...document.querySelectorAll('#pbq-match-rows select')].map(x => x.value);
+                if (values.some(v => !v)) {
+                    this.showPBQFeedback(false, 'Complete every row before submitting.');
+                    return;
+                }
+                const correct = values.every((v,i) => v === sc.rows[i][1]);
+                if (correct) {
+                    this.markPBQComplete();
+                    this.showPBQFeedback(true, '<b>✓ Correct.</b><div class="mt-1">Every item is matched correctly.</div>');
+                } else {
+                    const firstWrong = values.findIndex((v,i) => v !== sc.rows[i][1]);
+                    this.showPBQFeedback(false, `<b>Not quite.</b><div class="mt-1">At least one row is incorrect. Re-check row ${firstWrong + 1} and submit again.</div>`);
+                }
             }
 
             selectPBQScenario(idx) {
@@ -597,48 +788,6 @@
 
             togglePBQHint() {
                 document.getElementById('pbq-hint-box').classList.toggle('hidden');
-            }
-
-            handleTerminalCommand(e) {
-                if (e.key === 'Enter') this.execTerminalCommand();
-            }
-
-            execTerminalCommand() {
-                const input = document.getElementById('terminal-input');
-                const cmd = input.value.trim();
-                if (!cmd) return;
-
-                const body = document.getElementById('terminal-body');
-                const cmdLine = document.createElement('div');
-                cmdLine.innerHTML = `<span class="text-slate-400">C:\\Windows\\System32&gt;</span> ${cmd}`;
-                body.appendChild(cmdLine);
-
-                const sc = pbqScenarios[this.currentPBQIndex];
-                const respLine = document.createElement('div');
-
-                if (sc.expected.some(c => cmd.toLowerCase().includes(c.toLowerCase()))) {
-                    respLine.className = "text-emerald-300 font-mono whitespace-pre-line my-1 p-2 bg-emerald-950/40 rounded border border-emerald-800/50";
-                    respLine.textContent = sc.success;
-                    this.state.pbqSolved = (this.state.pbqSolved || 0) + 1;
-                    this.saveState();
-                } else if (cmd.toLowerCase() === 'help') {
-                    respLine.className = "text-amber-300 font-mono my-1";
-                    respLine.textContent = "Available CLI commands: cd, dir, md, rmdir, ipconfig, ping, netstat, nslookup, tracert, pathping, chkdsk, diskpart, robocopy, hostname, net user, winver, whoami, gpupdate, gpresult, sfc, clear.";
-                } else {
-                    respLine.className = "text-rose-400 font-mono my-1";
-                    respLine.textContent = `'${cmd}' is not recognized as a command for this scenario. Try again or check hint.`;
-                }
-
-                body.appendChild(respLine);
-                input.value = '';
-                body.scrollTop = body.scrollHeight;
-            }
-
-            clearTerminal() {
-                document.getElementById('terminal-body').innerHTML = `
-                    <div>Microsoft Windows [Version 10.0.19045.3803]</div>
-                    <div class="text-slate-400 pb-2">Terminal cleared.</div>
-                `;
             }
 
             /* Render Stats Page */

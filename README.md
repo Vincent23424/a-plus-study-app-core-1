@@ -1,37 +1,23 @@
-# A+ Core 1 Study App
+# A+ Core 1 Study App — V6.1
 
-A free CompTIA A+ Core 1 (220-1201) study PWA covering Modules 1–10.
+A CompTIA A+ Core 1 (220-1201) study PWA covering Modules 1–10.
 
-## Current Build
-
-- **763 source-grounded questions**
-- Module and All Modules quizzes
-- Final Test, Random Practice, New, Wrong, Weak and Starred Questions
-- Multiple question styles for the same concepts
-- Flashcard Review with module and question-count selection
-- PBQ & Lab exercises
-- Reference section
-- Study Readiness 0–100%
+## Features
+- Core 1 question bank with randomized quizzes and answer choices
+- Final Test, Random Practice, New Questions, Weak Areas, Wrong Questions and Starred Questions
+- Module, lesson and 3-Module Challenge practice
+- Flashcards
+- PBQ & Lab practice with interactive wiring and matching tasks
+- Ports & Protocols and Core 1 reference material
+- Progress, accuracy and module statistics
 - LocalStorage progress tracking
-- Responsive design with Dark/Light mode
+- PWA / offline support
 
-## Source Scope
+## Source
+Based on the supplied CompTIA A+ Core 1 Student Guide and 220-1201 V15 Exam Objectives.
 
-Based only on the supplied:
+Built as a personal study project with AI-assisted development.
 
-- **CompTIA A+ Core 1 and Core 2 Student Guide — Modules 1–10**
-- **CompTIA A+ 220-1201 Exam Objectives, Version 4.0**
+Not affiliated with or endorsed by CompTIA.
 
-The question bank was expanded to cover the Core 1 lesson objectives and to include alternate question styles such as identifying a concept from a description and identifying the description/behavior of a named concept.
-
-## Technology
-
-HTML, CSS, JavaScript, LocalStorage and GitHub Pages.
-
-Built with **AI-assisted development** as a personal CompTIA A+ study project.
-
-## Disclaimer
-
-This is an independent personal project and is not affiliated with, sponsored by, or endorsed by CompTIA.
-
-The app is intended as a study aid and should be used alongside the official CompTIA exam objectives and study materials.
+- Port Quiz and Standards Quiz
